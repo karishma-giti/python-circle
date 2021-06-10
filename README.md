@@ -10,7 +10,7 @@
 
 
 #for database
-#create "test1234" database on mysql/phpmyadmin database
+#create "test1234" database on mysql database in your machine
 
 #run project on your machine
 #open terminal and go to the python_circle directory and run this  command "python3 manage.py makemigrations" and "python3 manage.py migrate"
