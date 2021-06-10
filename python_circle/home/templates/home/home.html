@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User's Skill</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body><center>
+<div class="card" style="width:25em;margin:30px;">
+  <form method="POST" action="#">
+
+    {% csrf_token %}
+    <b>Username</b><input type="text" name="username" class="form-control" id="usernane"></br>
+     <b> Name <b> <input type="text" name="name" class="form-control" required></br>
+  <table class="table table-bordered table-hover" id="tab_logic">
+      <thead>
+        <tr>
+          <th class="text-center">
+            S.No
+          </th>
+          <th class="text-center">
+            Skill
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr id='addr0'>
+          <td>
+            1
+          </td>
+          <td>
+            <input type="text" name='skill[]' placeholder=' skill' class="form-control" required/>
+          </td>
+        </tr>
+        <tr id='addr1'></tr>
+      </tbody>
+    </table>
+    <a  id="add_row" style="background-color:#00BFFF; color: white;padding: 5px 5px;text-align: center;margin:4px;text-decoration: none;
+        display: inline-block;float: left;" class="btn btn-default">Add</a>
+    <a id='delete_row' style="background-color:#DC143C;color: white;padding: 5px 5px;text-align: center;margin:4px;text-decoration: none;
+        display: inline-block; float: left;" class="btn btn-default">Delete</a></br></br>
+
+    <button type="Submit">Submit</button>
+  </form></div>
+  <script>
+    $(document).ready(function() {
+      var i = 1;
+      $("#add_row").click(function() {
+        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input  name=' skill[]' type='text' placeholder=' skill' class='form-control'/> </td>");
+        $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+        i++;
+      });
+      $("#delete_row").click(function() {
+        if (i > 1) {
+          $("#addr" + (i - 1)).html('');
+          i--;
+        }
+      });
+    });
+  </script>
+  
+
+  </center>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
