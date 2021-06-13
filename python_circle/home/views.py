@@ -8,7 +8,7 @@ from django.http import JsonResponse
 def insertion(request):
     user = UserSkills(request.POST)
     if request.method =="POST":
-        username=request.POST.get('username')  
+        username=request.POST.get('username')
         name=request.POST.get('name')
         skill = request.POST.getlist(('skill[]'))
         skill=','.join(skill)
@@ -17,7 +17,6 @@ def insertion(request):
         Insertion.save()
         return redirect('/home/success_message')
     else:
-        messages.error(request,'data not inserted!')
         return render(request,"home/home.html")
 
 

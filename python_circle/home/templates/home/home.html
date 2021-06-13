@@ -16,20 +16,16 @@
 
 <body>
   <center>
-    {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
-
+{% if messages %}
+        <ul class="messagelist">{% for message in messages %}<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message}}</li>{% endfor %}</ul>
+    {% endif %}
+  
     <div class="card" style="width:25em;margin:30px;">
       <!----------form------------------------------>
 
       <form method="POST" action="#" enctype="multipart/form-data">
         {% csrf_token %}
-        <b>Username</b><input type="text" name="username" class="form-control" id="username" maxlength="25">
+        <b>Username</b><input type="text" name="username" class="form-control" id="username" maxlength=25>
         <span id="exists"></span></br>
         <b> Name <b> <input type="text" name="name" class="form-control" required></br>
             <table class="table table-bordered table-hover" id="tab_logic">
@@ -61,7 +57,7 @@
             <button type="Submit">Submit</button>
       </form>
     </div>
-
+   
   </center>
 
 <!----------used jquery, Ajax and javaScript for user already exists or not ---->
