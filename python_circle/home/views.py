@@ -9,13 +9,19 @@ def insertion(request):
     user = UserSkills(request.POST)
     if request.method =="POST":
         username=request.POST.get('username')
+        if UserSkills.objects.filter(username=username).exists():
+            messages.error(request,'username already exists!')
+            return redirect("/home/")           
         name=request.POST.get('name')
+        if name=="":
+            return redirect("/home/")
         skill = request.POST.getlist(('skill[]'))
         skill=','.join(skill)
-        print(skill)
+        if skill=="":
+            return redirect("/home/")
         Insertion=UserSkills(name=name,skill=skill,username=username)
         Insertion.save()
-        return redirect('/home/success_message')
+        return redirect('/home/user_list')
     else:
         return render(request,"home/home.html")
 
@@ -33,6 +39,11 @@ def validate_username(request):
 def success_message(request):
     return render(request,"home/success.html")
 
+
+def user_list(request):
+    user_list = UserSkills.objects.all()
+    print(user_list)
+    return render(request,"home/success.html",{'context':user_list})
 
 
 

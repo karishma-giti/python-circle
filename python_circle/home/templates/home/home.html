@@ -27,7 +27,7 @@
         {% csrf_token %}
         <b>Username</b><input type="text" name="username" class="form-control" id="username" maxlength=25>
         <span id="exists"></span></br>
-        <b> Name <b> <input type="text" name="name" class="form-control" required></br>
+        <b> Name <b> <input type="text" name="name" class="form-control"></br>
             <table class="table table-bordered table-hover" id="tab_logic">
               <thead>
                 <tr>
@@ -45,7 +45,7 @@
                     1
                   </td>
                   <td>
-                    <input type="text" name='skill[]' placeholder=' skill' class="form-control" required />
+                    <input type="text" name='skill[]' placeholder=' skill' class="form-control"/>
                   </td>
                 </tr>
                 <tr id='addr1'></tr>
@@ -54,7 +54,7 @@
             <a id="add_row" class="btn btn-default">Add</a>
             <a id='delete_row' class="btn btn-default">Delete</a></br></br>
 
-            <button type="Submit">Submit</button>
+            <button class="btn btn-secondary"type="Submit">Submit</button>
       </form>
     </div>
    

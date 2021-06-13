@@ -9,4 +9,11 @@
        <p style="margin:40px;">sucessfull added</p>
         </center>
     </body>
+    <table>
+    {% for i in context  %}
+    {{ i.name}}
+    {{ i.skill}}
+    {% endfor %}
+    
+    </table>
 </html>
