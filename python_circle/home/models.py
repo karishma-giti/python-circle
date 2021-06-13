@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+#<-------------model (table)-------->
+
 class UserSkills(models.Model):
     username = models.CharField(max_length=25,unique=True)  
     name = models.CharField(max_length=100,null=False,default=False)  
